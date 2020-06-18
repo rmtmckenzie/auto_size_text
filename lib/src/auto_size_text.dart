@@ -253,6 +253,10 @@ class _AutoSizeTextState extends State<AutoSizeText> {
         style = style.copyWith(fontSize: AutoSizeText._defaultFontSize);
       }
 
+      if (MediaQuery.boldTextOverride(context)) {
+        style = style.merge(const TextStyle(fontWeight: FontWeight.bold));
+      }
+
       var maxLines = widget.maxLines ?? defaultTextStyle.maxLines;
 
       _sanityCheck(style, maxLines);
